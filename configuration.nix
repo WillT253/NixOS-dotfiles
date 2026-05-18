@@ -148,8 +148,14 @@
           ;
       })
       git
-      git-filter-repo
       gh
+      github-desktop
+      git-filter-repo
+      gedit
+      zef
+      (pkgs.ollama.override {
+        acceleration = "rocm";
+      })
       opentabletdriver
       pciutils
       kitty
@@ -161,7 +167,7 @@
       cava
       easyeffects
       fish
-      neofetch
+      fastfetch
       rofi
       sway
       waybar
@@ -203,12 +209,10 @@
     EndSection
   '';
 
-  # security.pki.certificateFiles = [
-  #   ./certs/CA-93D5B1CA53B23E076457FB98026F93D18BAF7D86.pem
-  #   ./certs/CA-9825D54BE694F381F56404887169F78F83EE24B8.pem
-  # ];
-
-  security.pki.certificateFiles = import ./cert-list.nix;
+  security.pki.certificateFiles = [
+    ./certs/CA-93D5B1CA53B23E076457FB98026F93D18BAF7D86.pem
+    ./certs/CA-9825D54BE694F381F56404887169F78F83EE24B8.pem
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
