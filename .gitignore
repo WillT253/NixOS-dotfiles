@@ -1,5 +1,6 @@
-# Ignore certs directory contents
+# Ignore certs directory contents as well as the list of locally installed certs
 certs/*
+cert-list.nix
 
 # Ignore device configuration as it is system-specific
 hardware-configuration.nix
