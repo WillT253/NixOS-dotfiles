@@ -210,10 +210,7 @@
     EndSection
   '';
 
-  security.pki.certificateFiles = [
-    ./certs/CA-93D5B1CA53B23E076457FB98026F93D18BAF7D86.pem
-    ./certs/CA-9825D54BE694F381F56404887169F78F83EE24B8.pem
-  ];
+  security.pki.certificateFiles = import ./cert-list.nix;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
