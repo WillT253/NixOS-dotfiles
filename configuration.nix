@@ -178,6 +178,7 @@
       kdePackages.yakuake
       omnissa-horizon-client
       kdePackages.krohnkite
+      libreoffice
     ]
     ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
