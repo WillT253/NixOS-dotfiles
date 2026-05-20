@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Generates a Nix file containing an absolute path list of your untracked certificates
-CERT_DIR="/home/will/nixos-dotfiles/certs"
+CERT_DIR="~/certs"
+
+WORKING_DIR=$(pwd)
+
+cd ~/nixos-dotfiles/
 
 echo "[" > cert-list.nix
 for cert in "$CERT_DIR"/*.{crt,pem}; do
@@ -9,3 +13,5 @@ for cert in "$CERT_DIR"/*.{crt,pem}; do
   fi
 done
 echo "]" >> cert-list.nix
+
+cd $WORKING_DIR
