@@ -211,7 +211,7 @@
     EndSection
   '';
 
-  # security.pki.certificateFiles = import /home/will/nixos-dotfiles/cert-list.nix;
+  security.pki.certificateFiles = import ./cert-list.nix;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
