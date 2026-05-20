@@ -3,7 +3,7 @@
 set -o pipefail
 export workingDir=$(pwd)
 
-cd ~/.dotfiles
+cd ~/nixos-dotfiles
 
 git add -A
 

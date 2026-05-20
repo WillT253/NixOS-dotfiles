@@ -23,9 +23,9 @@
 
     shellAliases = {
       "la" = "ls -al";
-      "udnix" = "~/.dotfiles/home-manager/udnix.sh";
-      "udhome" = "~/.dotfiles/home-manager/udhome.sh";
-      "nixcln" = "~/.dotfiles/home-manager/nixcln.sh";
+      "udnix" = "~/nixos-dotfiles/home-manager/udnix.sh";
+      "udhome" = "~/nixos-dotfiles/home-manager/udhome.sh";
+      "nixcln" = "~/nixos-dotfiles/home-manager/nixcln.sh";
       ":q" = "exit";
     };
 
@@ -37,15 +37,15 @@
 
   xdg.configFile = {
     "kitty/kitty.conf".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home-manager/kitty.conf";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kitty.conf";
     "kitty/current-theme.conf".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home-manager/kitty-current-theme.conf";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kitty-current-theme.conf";
     "kitty/quick_access_terminal.conf".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home-manager/quick_access_terminal.conf";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/quick_access_terminal.conf";
     "kwinrc".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home-manager/kwinrc";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kwinrc";
     "home-manager".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home-manager";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager";
   };
 
   programs = {
