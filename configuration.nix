@@ -67,7 +67,7 @@
   services.xserver.xkb = {
     layout = "gb,gr,ru,ua";
     variant = ",,phonetic,phonetic";
-    options = "grp:alt_shift_toggle,caps:swapescape,compose:prsc";
+    options = "grp:shifts_toggle,caps:swapescape,compose:prsc";
   };
 
   # Configure console keymap
