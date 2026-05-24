@@ -73,6 +73,9 @@
   # Configure console keymap
   console.keyMap = "uk";
 
+  # Enable USB multiplexing daemon
+  services.usbmuxd.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -174,12 +177,15 @@
       waybar
       home-manager
       gnumake
-      protonvpn-gui
+      proton-vpn
       libnotify
       kdePackages.yakuake
       omnissa-horizon-client
       kdePackages.krohnkite
       libreoffice
+      libimobiledevice
+      ifuse
+      gthumb
     ]
     ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
