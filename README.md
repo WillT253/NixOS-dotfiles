@@ -38,28 +38,30 @@ I will work with **either** keyboard **or** mouse. Not both. TUIs are superior. 
 
 To be honest, I don't know what would possess someone to install this, but if you really want to, then install NixOS fresh or back up your existing configs first.
 
-**1. Clone the repo:**
+### 1. Clone the repo:
    ```bash
-   git clone https://github.com/willt253/nixos-dotfiles
+git clone https://github.com/willt253/nixos-dotfiles
    ```
-   Ensure this is in your home directory (`~/nixos-dotfiles`), or the symlinks will not work.
+Ensure this is in your home directory (`~/nixos-dotfiles`), or the symlinks will not work.
 
-**2. Meticulously trawl through all of the configuration files and replace 'will' with your desired username, and 'will-nixos' with your desired hostname.**
+### 2. Meticulously trawl through all of the configuration files and replace 'will' with your desired username, and 'will-nixos' with your desired hostname.
 
-  Did I say this would be simple?
+Did I say this would be simple?
 
-**3. Back up or remove all of the files referenced in `home-manager/home.nix`'s `mkOutOfStoreSymlink` blocks, as they will cause errors if not.**
+### 3. Back up or remove all of the files referenced in `home-manager/home.nix`'s `mkOutOfStoreSymlink` blocks, as they will cause errors if not.
 
-**4. Remove the contents of the `certs/` directory, and run `./update-certs.sh`**
+### 4. Remove the contents of the `certs/` directory, and run `./update-certs.sh`
 
-**5. Run `sudo nixos-rebuild switch --flake path:~/nixos-dotfiles/#your-hostname-here`, replacing `your-hostname-here` with the hostname you chose for your system and replaced 'will-nixos' with in `configuration.nix`**
+### 5. Run `sudo nixos-rebuild switch --flake path:~/nixos-dotfiles/#your-hostname-here`, replacing `your-hostname-here` with the hostname you chose for your system and replaced 'will-nixos' with in `configuration.nix`
 
-**6. Reboot**
+### 6. Reboot
 
-**7. Open a terminal in the `~/nixos-dotfiles/home-manager` directory and run `home-manager switch --flake path:.#your-username-here`, replacing `your-username-here` with your chosen username.**
+### 7. Open a terminal in the `~/nixos-dotfiles/home-manager` directory and run `home-manager switch --flake path:.#your-username-here`, replacing `your-username-here` with your chosen username.
 
-**8. Either log out and back in again or reboot your system.**
+### 8. Either log out and back in again or reboot your system.
 
-**9. Open an issue because this probably didn't work.**
+### 9. Open an issue because this probably didn't work.
+
+---
 
 Good luck, my friend. You have chosen quite possibly the least stable NixOS configuration on this site.
