@@ -210,9 +210,10 @@
           "Switch to Previous Desktop" = "Meta+Alt+Space";
           "Switch One Desktop Down" = "Meta+Ctrl+Space";
           "Switch One Desktop Up" = "Meta+Ctrl+Alt+Space";
-          "PoloniumRetileWindow" = "Meta+Ctrl+Alt+Shift+Space";
           "Window to Next Desktop" = "Meta+Shift+Space";
           "Window to Previous Desktop" = "Meta+Alt+Shift+Space";
+          "Window One Desktop Down" = "Meta+Ctrl+Shift+Space";
+          "Window One Desktop Up" = "Meta+Ctrl+Alt+Shift+Space";
         };
         org_kde_powerdevil = {
           "powerProfile" = "none";
