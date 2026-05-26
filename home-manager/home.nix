@@ -27,6 +27,7 @@
       "udhome" = "~/nixos-dotfiles/home-manager/udhome.sh";
       "nixcln" = "~/nixos-dotfiles/home-manager/nixcln.sh";
       ":q" = "exit";
+      "gpl" = "git pull";
     };
 
     username = "will";
