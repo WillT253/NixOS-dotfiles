@@ -50,7 +50,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit lazyvim; };
           modules = [
-            /home/will/.config/home-manager/home.nix
+            ./home-manager/home.nix
             plasma-manager.homeModules.plasma-manager
           ];
         };

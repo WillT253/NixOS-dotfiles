@@ -3,8 +3,8 @@
 set -o pipefail
 export originalDir=$(pwd)
 
-cd ~/.config/home-manager
+cd ~/nixos-dotfiles
 git add -A
-make update
+home-manager switch --flake .
 
 cd $originalDir
