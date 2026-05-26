@@ -46,7 +46,7 @@
       };
 
       homeConfigurations = {
-        will = home-manager.lib.homeconfiguration {
+        will = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit lazyvim; };
           modules = [
