@@ -155,6 +155,7 @@
       github-desktop
       git-filter-repo
       git-crypt
+      git-lfs
       gedit
       zef
       (pkgs.ollama.override {
