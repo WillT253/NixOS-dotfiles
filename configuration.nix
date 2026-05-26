@@ -187,6 +187,8 @@
       libimobiledevice
       ifuse
       gthumb
+      nh
+      nyxt
     ]
     ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
