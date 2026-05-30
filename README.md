@@ -16,6 +16,19 @@ I tried Polonium; I didn't like it. I'm a very simple person, and my needs are n
 
 I like both, so I have both. Kitty provides the window theming, zsh provides the colors and layout. 
 
+### Home-manager & plasma-manager
+
+Essentials, now integrated into the system flake. Just run your favourite flavor of `nixos-rebuild` or `nh os`, or my handy update script, to rebuild the config.
+NOTE: My configuration currently does NOT support hotswapping configs for Plasma. Any other programs are fine, but Plasma requires *at least* a re-log for changes to take effect.
+
+### File-manager - `ranger`
+
+A bit of an underdog when it comes to file managers, but the simplicity gives it a nice charm for me. I also picked it for the extensive use of `vi`-like keybinds.
+
+### Browser - Firefox (For now)
+
+The default is often the easiest to work with as it is already there and ready to go. However, I am messing around with Qutebrowser and will probably switch at some point in the near future.
+
 ### Xournal++
 
 I use a graphics tablet to complete my work as printing is expensive and typing math is a pain (yes, I know LaTeX exists and I'm relatively well-versed in its syntax, but handwriting these things is often faster nonetheless).
@@ -32,6 +45,14 @@ Not used very often bit it is still useful to have at least a semi-comprehensive
 
 I will work with **either** keyboard **or** mouse. Not both. TUIs are superior. NeoVim rules. 
 
+### `nh`
+
+This is self-explanatory. `nh` is just brilliant.
+
+### Alias for updating config
+
+After changing any configuration in the repo, just run `udnix` from any terminal managed by home-manager to rebuild the configuration.
+
 ### Probably more in future!
 
 ## Installation
@@ -45,7 +66,7 @@ git clone https://github.com/willt253/nixos-dotfiles
 Ensure this is in your home directory (`~/nixos-dotfiles`), or the symlinks will not work.
 
 ### 2. Copy `/etc/nixos/hardware-configuration.nix` into the repo in place of the file that will be cloned.
-Unless you're on a HP Laptop 15-da0 series laptop that you've replaced several components of and whose drive just so happens to have exactly the same partition UUIDs as mine, you'll probably want to do this step or your config won't boot.
+Unless you're on a HP Laptop 15-da0 series laptop that you've replaced several components of and whose drive just so happens to have exactly the same partition UUIDs as mine, you'll probably want to do this step or your config won't boot. You will only need to do this once: the file is under gitignore, so won't change with updates.
 
 ### 3. Set your desired hostname and username.
 To do this, you must trawl through all of the configuration files in the repo, replacing 'will' with you desired *username* and 'will-nixos' with your desired *hostname*.
@@ -55,7 +76,7 @@ Did I say this would be simple?
 This configuration uses symlinks very heavily, and if your existing config files are in the way, running `home-manager switch` will either throw errors or overwrite the files if you force the switch. Namely, pay attention to the files referenced in the `mkOutOfStoreSymlink` blocks of `home-manager/home.nix` as they *will* throw errors if there are existing files in the way.
 
 ### 5. Configure your certificates
-This configuration is used on a system that requires CA certificates for a part of the workflow that I undergo, and the easiest way to have the certs integrate into my system was to include encrypted copies in the repository. However, this means you have to do more work if you are not me. First, delete the contents of the `certs/` directory, but keep the directory itself. At this point, if you have any certs of your own, **symlink or copy** them into the `certs/` directory (the preinstalled certs are `git`-tracked, so pulling the repo will mean replacing the files). Then run `./update-certs.sh` to turn `cert-list.nix` into a valid (empty) nix expression. If you have no certs to install, at this point you can remove the `certs/` directory without causing any harm.
+This configuration is used on a system that requires CA certificates for a part of the workflow that I undergo, and the easiest way to have the certs integrate into my system was to include encrypted copies in the repository. However, this means you have to do more work if you are not me. First, delete the contents of the `certs/` directory, but keep the directory itself. At this point, if you have any certs of your own, **symlink or copy** them into the `certs/` directory (DO **NOT** *move* them: the preinstalled certs are `git`-tracked, so pulling the repo will mean replacing the files). Then run `./update-certs.sh` to turn `cert-list.nix` into a valid (empty) nix expression. If you have no certs to install, at this point you can remove the `certs/` directory without causing any harm.
 
 ### 6. Rebuild your system using the prepared configs.
 The first time you rebuild your system using these configs you will need to specify that you want to use the flake, and where the flake itself is. To rebuild your system run `sudo nixos-rebuild boot --flake path:.#your-HOSTNAME-here --extra-experimantal-features "nix-command flakes"`. Firstly, note that the flake is specified using `path:`; this is important as without it, the changes you made to other files in the clone will not be recognised by the command and errors will occur. Also note the `your-HOSTNAME-here` afterwards. You know what to do with this part, I won't insult you.
@@ -64,12 +85,7 @@ The first time you rebuild your system using these configs you will need to spec
 
 ### 7. Reboot
 
-### 8. Install the home-manager configuration.
-Open a terminal in the repository's directory and run `home-manager switch --flake path:.`
-
-### 9. Either log out and back in again or reboot your system.
-
-### 10. Open an issue because this probably didn't work.
+### 8. Open an issue because this probably didn't work.
 
 ---
 
