@@ -4,11 +4,13 @@
   pkgs,
   lazyvim,
   config,
+  plasma-manager,
   ...
 }:
 {
   imports = [
     lazyvim.homeManagerModules.default
+    plasma-manager.homeModules.plasma-manager
   ];
 
   fonts.fontconfig.enable = true;
@@ -18,13 +20,12 @@
       hello
       statix
       nil
-      nixfmt-rfc-style
+      nixfmt
     ];
 
     shellAliases = {
       "la" = "ls -al";
       "udnix" = "~/nixos-dotfiles/home-manager/udnix.sh";
-      "udhome" = "~/nixos-dotfiles/home-manager/udhome.sh";
       "nixcln" = "~/nixos-dotfiles/home-manager/nixcln.sh";
       ":q" = "exit";
       "gpl" = "git pull";
@@ -96,6 +97,11 @@
           key = "Meta+Return";
           command = "kitty";
         };
+        file-manager = {
+          name = "Launch File Manager";
+          key = "Meta+E";
+          command = "kitty ranger";
+        };
       };
 
       enable = true;
@@ -133,7 +139,7 @@
           height = 44;
           floating = true;
           lengthMode = "fill";
-          hiding = "none";
+          hiding = "autohide";
           opacity = "translucent";
           widgets = [
             "org.kde.plasma.kickoff"
@@ -208,6 +214,7 @@
       ];
 
       shortcuts = {
+        # "services/org.kde.dolphin.desktop"."_launch" = "none";
         kwin = {
           "Switch to Next Desktop" = "Meta+Space";
           "Switch to Previous Desktop" = "Meta+Alt+Space";
@@ -220,6 +227,9 @@
         };
         org_kde_powerdevil = {
           "powerProfile" = "none";
+        };
+        plasmashell = {
+          "cycle-panels" = "Meta+Z";
         };
       };
     };

@@ -38,23 +38,35 @@
     {
       nixosConfigurations = {
         will-nixos = lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.will = import ./home-manager/home.nix;
+                backupFileExtension = "backup";
+                extraSpecialArgs = {
+                  inherit lazyvim plasma-manager;
+                };
+              };
+            }
           ];
         };
       };
 
-      homeConfigurations = {
-        will = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit lazyvim; };
-          modules = [
-            ./home-manager/home.nix
-            plasma-manager.homeModules.plasma-manager
-          ];
-        };
-      };
+      # homeConfigurations = {
+      #   will = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs;
+      #     extraSpecialArgs = { inherit lazyvim; };
+      #     modules = [
+      #       ./home-manager/home.nix
+      #       plasma-manager.homeModules.plasma-manager
+      #     ];
+      #   };
+      # };
 
     };
 
