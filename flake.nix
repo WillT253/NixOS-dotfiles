@@ -56,18 +56,5 @@
           ];
         };
       };
-
-      # homeConfigurations = {
-      #   will = home-manager.lib.homeManagerConfiguration {
-      #     inherit pkgs;
-      #     extraSpecialArgs = { inherit lazyvim; };
-      #     modules = [
-      #       ./home-manager/home.nix
-      #       plasma-manager.homeModules.plasma-manager
-      #     ];
-      #   };
-      # };
-
     };
-
 }
