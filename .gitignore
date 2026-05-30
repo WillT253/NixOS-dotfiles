@@ -3,4 +3,4 @@
 # cert-list.nix
 
 # Ignore device configuration as it is system-specific
-./hardware-configuration.nix
+hardware-configuration.nix
