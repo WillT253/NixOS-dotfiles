@@ -134,66 +134,77 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    with pkgs;
-    [
-      neovim
-      wget
-      firefoxpwa
-      xournalpp
-      (texlive.combine {
-        inherit (texlive)
-          scheme-basic
-          standalone
-          varwidth
-          scontents
-          xcolor
-          ;
-      })
-      git
-      gh
-      github-desktop
-      git-filter-repo
-      git-crypt
-      git-lfs
-      gedit
-      zef
-      (pkgs.ollama.override {
-        acceleration = "rocm";
-      })
-      opentabletdriver
-      pciutils
-      kitty
-      zsh
-      tdrop
-      tmux
-      oh-my-zsh
-      btop
-      cava
-      easyeffects
-      fish
-      fastfetch
-      rofi
-      sway
-      waybar
-      home-manager
-      gnumake
-      proton-vpn
-      libnotify
-      kdePackages.yakuake
-      omnissa-horizon-client
-      kdePackages.krohnkite
-      libreoffice
-      libimobiledevice
-      ifuse
-      gthumb
-      nh
-      nyxt
-      ranger
-    ]
-    ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  environment = {
+    systemPackages =
+      with pkgs;
+      [
+        neovim
+        wget
+        firefoxpwa
+        xournalpp
+        (texlive.combine {
+          inherit (texlive)
+            scheme-basic
+            standalone
+            varwidth
+            scontents
+            xcolor
+            ;
+        })
+        git
+        gh
+        github-desktop
+        git-filter-repo
+        git-crypt
+        git-lfs
+        gedit
+        zef
+        (pkgs.ollama.override {
+          acceleration = "rocm";
+        })
+        opentabletdriver
+        pciutils
+        kitty
+        zsh
+        tdrop
+        tmux
+        oh-my-zsh
+        btop
+        cava
+        easyeffects
+        fish
+        fastfetch
+        rofi
+        sway
+        waybar
+        home-manager
+        gnumake
+        proton-vpn
+        libnotify
+        kdePackages.yakuake
+        omnissa-horizon-client
+        kdePackages.krohnkite
+        libreoffice
+        libimobiledevice
+        ifuse
+        gthumb
+        nh
+        nyxt
+        ranger
+        ripgrep
+        fd
+        croc
+        jrnl
+      ]
+      ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  environment.pathsToLink = [ "/share/zsh" ];
+    variables = {
+      EDITOR = "nvim";
+    };
+
+    pathsToLink = [ "/share/zsh" ];
+  };
+
   fonts = {
     packages = builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };

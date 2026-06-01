@@ -29,6 +29,8 @@
       "nixcln" = "~/nixos-dotfiles/home-manager/nixcln.sh";
       ":q" = "exit";
       "gpl" = "git pull";
+      "gs" = "git status";
+      ":wq" = "exit";
     };
 
     username = "will";
@@ -50,6 +52,8 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager";
     "nyxt".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/nyxt";
+    ".zshrc".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/.zshrc";
   };
 
   programs = {
