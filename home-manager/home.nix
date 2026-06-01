@@ -31,12 +31,13 @@
       "gpl" = "git pull";
       "gs" = "git status";
       ":wq" = "exit";
+      "gre" = "git restore";
     };
 
     username = "will";
     homeDirectory = "/home/will";
 
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   xdg.configFile = {
@@ -52,8 +53,6 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager";
     "nyxt".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/nyxt";
-    ".zshrc".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/.zshrc";
   };
 
   programs = {
@@ -69,6 +68,14 @@
       history = {
         append = true;
       };
+      initContent = pkgs.lib.mkOrder 1000 ''
+        # Open buffer line in editor
+        autoload -Uz edit-command-line
+        zle -N edit-command-line
+        bindkey '^x^e' edit-command-line
+
+        bindkey -s '^Xgc' 'gc -m ""\C-b'
+      '';
       oh-my-zsh = {
         enable = true;
         plugins = [
