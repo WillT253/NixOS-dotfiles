@@ -189,8 +189,6 @@
           desktopSwitching.navigationWrapping = true;
           dimAdminMode.enable = true;
         };
-
-        tiling.padding = 36;
       };
 
       configFile = {

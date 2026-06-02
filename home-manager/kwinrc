@@ -35,6 +35,9 @@ screenGapTop=8
 [Script-polonium]
 Borders=3
 
+[Tiling]
+padding=36
+
 [Tiling][Desktop_1][31930a42-cfdd-44e2-acf9-6bf90a6dac32]
 padding=36
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
