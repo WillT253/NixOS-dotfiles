@@ -32,6 +32,7 @@
       "gs" = "git status";
       ":wq" = "exit";
       "gre" = "git restore";
+      "ecfg" = "cd ~/nixos-dotfiles/; nvim .";
     };
 
     username = "will";
@@ -75,6 +76,8 @@
         bindkey '^x^e' edit-command-line
 
         bindkey -s '^Xgc' 'gc -m ""\C-b'
+
+        bindkey -s '^Xga' 'ga -A'
       '';
       oh-my-zsh = {
         enable = true;
