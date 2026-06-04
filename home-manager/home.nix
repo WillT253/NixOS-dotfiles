@@ -31,9 +31,12 @@
       ":q" = "exit";
       "gpl" = "git pull";
       "gs" = "git status";
+      "gbls" = "git branch --list";
       ":wq" = "exit";
       "gre" = "git restore";
       "ecfg" = "cd ~/nixos-dotfiles/; nvim .";
+      "grep" = "rg";
+      "find" = "fd";
     };
 
     username = "will";
