@@ -102,9 +102,9 @@
 
       hotkeys.commands = {
         launch-browser = {
-          name = "Launch Firefox";
+          name = "Launch Browser";
           key = "Meta+B";
-          command = "firefox";
+          command = "qutebrowser";
         };
         launch-konsole = {
           name = "Launch Konsole";
