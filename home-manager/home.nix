@@ -25,6 +25,7 @@
 
     shellAliases = {
       "la" = "ls -al";
+      "ls-ext" = "ls -Abhlps";
       "udnix" = "~/nixos-dotfiles/home-manager/udnix.sh";
       "nixcln" = "~/nixos-dotfiles/home-manager/nixcln.sh";
       ":q" = "exit";
