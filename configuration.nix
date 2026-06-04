@@ -126,6 +126,10 @@
   hardware.opentabletdriver.enable = true;
   hardware.uinput.enable = true;
 
+  # Bluetooth service
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Enable flakes and nix-command
   nix.settings.experimental-features = [
     "nix-command"
