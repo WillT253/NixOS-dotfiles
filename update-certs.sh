@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Generates a Nix file containing an absolute path list of your untracked certificates
-CERT_DIR="~/certs"
+CERT_DIR="~/nixos-dotfiles/certs"
 
 WORKING_DIR=$(pwd)
 
