@@ -10,7 +10,7 @@ shopt -s nullglob
 
 echo "[" > cert-list.nix
 for cert in "$CERT_DIR"/*.pem; do
-  echo "  \"$cert\"" >> cert-list.nix
+  echo "  ./certs/$(basename "$cert")" >> cert-list.nix
 done
 echo "]" >> cert-list.nix
 
