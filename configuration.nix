@@ -116,11 +116,15 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "libxml2-2.13.8"
+    ];
+  };
 
   # OpenTabletDriver nonsense
   hardware.opentabletdriver.enable = true;
@@ -144,7 +148,6 @@
       [
         neovim
         wget
-        firefoxpwa
         xournalpp
         (texlive.combine {
           inherit (texlive)
@@ -200,6 +203,7 @@
         croc
         jrnl
         qutebrowser
+        claude-code
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
