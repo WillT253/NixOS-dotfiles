@@ -23,6 +23,15 @@
       nixfmt
     ];
 
+    file.".config/autostart/goToDesktopOne.desktop".text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Reset Virtual Desktop
+      Comment=Force Plasma to open Virtual Desktop 1 on login
+      Exec=${pkgs.kdotool}/bin/kdotool set_desktop 1
+      X-KDE-Autostart-phase=2
+    '';
+
     shellAliases = {
       "la" = "ls -al";
       "ls-ext" = "ls -Abhlps";

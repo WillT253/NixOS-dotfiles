@@ -191,6 +191,7 @@
         kdePackages.yakuake
         omnissa-horizon-client
         kdePackages.krohnkite
+        kdotool
         libreoffice
         libimobiledevice
         ifuse
