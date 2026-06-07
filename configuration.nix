@@ -208,6 +208,7 @@
         croc
         jrnl
         gparted
+        teams-for-linux
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
