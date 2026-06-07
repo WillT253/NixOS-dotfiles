@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  sysSettings,
+  ...
+}:
 
 {
   imports = [
@@ -27,7 +32,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "will-nixos"; # Define your hostname.
+  networking.hostName = "${sysSettings.hostname}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -41,18 +46,18 @@
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.defaultLocale = "${sysSettings.locale}.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+    LC_ADDRESS = "${sysSettings.locale}.UTF-8";
+    LC_IDENTIFICATION = "${sysSettings.locale}.UTF-8";
+    LC_MEASUREMENT = "${sysSettings.locale}.UTF-8";
+    LC_MONETARY = "${sysSettings.locale}.UTF-8";
+    LC_NAME = "${sysSettings.locale}.UTF-8";
+    LC_NUMERIC = "${sysSettings.locale}.UTF-8";
+    LC_PAPER = "${sysSettings.locale}.UTF-8";
+    LC_TELEPHONE = "${sysSettings.locale}.UTF-8";
+    LC_TIME = "${sysSettings.locale}.UTF-8";
   };
 
   # Enable the X11 windowing system.
@@ -99,9 +104,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.will = {
+  users.users.${sysSettings.username} = {
     isNormalUser = true;
-    description = "Will Treweeks";
+    description = "${sysSettings.fullname}";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -197,14 +202,11 @@
         ifuse
         gthumb
         nh
-        nyxt
         ranger
         ripgrep
         fd
         croc
         jrnl
-        qutebrowser
-        claude-code
         gparted
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);

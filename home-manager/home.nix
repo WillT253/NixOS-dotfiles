@@ -5,6 +5,7 @@
   lazyvim,
   config,
   plasma-manager,
+  sysSettings,
   ...
 }:
 {
@@ -17,7 +18,6 @@
 
   home = {
     packages = with pkgs; [
-      hello
       statix
       nil
       nixfmt
@@ -48,8 +48,8 @@
       "find" = "fd";
     };
 
-    username = "will";
-    homeDirectory = "/home/will";
+    username = "${sysSettings.username}";
+    homeDirectory = "/home/${sysSettings.username}";
 
     stateVersion = "26.05";
   };
@@ -117,7 +117,7 @@
         launch-browser = {
           name = "Launch Browser";
           key = "Meta+B";
-          command = "qutebrowser";
+          command = "firefox";
         };
         launch-konsole = {
           name = "Launch Konsole";
@@ -260,7 +260,7 @@
     };
     konsole = {
       enable = true;
-      profiles."will" = {
+      profiles."${sysSettings.username}" = {
         command = "${pkgs.kitty}/bin/kitty";
         extraConfig = {
           Appearance = {
@@ -273,7 +273,7 @@
           };
         };
       };
-      defaultProfile = "will";
+      defaultProfile = "${sysSettings.username}";
     };
   };
 }

@@ -3,7 +3,6 @@
   description = "Test flake";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     lazyvim.url = "github:pfassina/lazyvim-nix";
@@ -33,12 +32,14 @@
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      sysSettings = import ./sysSettings.nix;
 
     in
     {
       nixosConfigurations = {
-        will-nixos = lib.nixosSystem {
+        ${sysSettings.hostname} = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit sysSettings; };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
@@ -46,10 +47,10 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.will = import ./home-manager/home.nix;
+                users.${sysSettings.username} = import ./home-manager/home.nix;
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
-                  inherit lazyvim plasma-manager;
+                  inherit lazyvim plasma-manager sysSettings;
                 };
               };
             }

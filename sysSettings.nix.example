@@ -1,0 +1,7 @@
+{
+  username = "will";
+  fullname = "Will Treweeks";
+  hostname = "will-nixos";
+  timezone = "Europe/London";
+  locale = "en_GB";
+}
