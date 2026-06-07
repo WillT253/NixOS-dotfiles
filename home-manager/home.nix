@@ -177,6 +177,17 @@
             "org.kde.plasma.pager"
           ];
         }
+        {
+          location = "top";
+          height = 320;
+          floating = true;
+          lengthMode = "fit";
+          hiding = "autohide";
+          opacity = "translucent";
+          widgets = [
+            "org.kde.plasma.mediacontroller"
+          ];
+        }
       ];
       kwin = {
         virtualDesktops = {
@@ -249,6 +260,7 @@
           "Window to Previous Desktop" = "Meta+Alt+Shift+Space";
           "Window One Desktop Down" = "Meta+Ctrl+Shift+Space";
           "Window One Desktop Up" = "Meta+Ctrl+Alt+Shift+Space";
+          "Window Close" = "Meta+Q";
         };
         org_kde_powerdevil = {
           "powerProfile" = "none";
