@@ -43,7 +43,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "${sysSettings.timezone}";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "${sysSettings.locale}.UTF-8";
