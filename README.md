@@ -69,7 +69,7 @@ After changing any configuration in the repo, just run `udnix` from any terminal
 
 ## Installation
 
-To be honest, I don't know what would possess someone to install this, but if you really want to, then install NixOS fresh or back up your existing configs first.
+To be honest, I don't know what would possess someone to install this, but if you really want to, then install NixOS fresh or back up your existing configs first. Note that this section only applies to first-time installation; see (§ Updating the configuration) for how to update.
 
 ### 1. Clone the repo:
 
@@ -88,11 +88,11 @@ Run `./generate-sysSettings.sh` to generate basic settings such as locale, keybo
 
 ### 4. Configure your certificates
 
-This configuration is used on a system that requires CA certificates for a part of the workflow that I undergo, and the easiest way to have the certs integrate into my system was to include encrypted copies in the repository. However, this means you have to do more work if you are not me. First, delete the contents of the `certs/` directory, but keep the directory itself. At this point, if you have any certs of your own, **symlink or copy** them into the `certs/` directory (DO **NOT** *move* them: the pre-installed certs are `git`-tracked, so pulling the repo will replace the files). Then run `./update-certs.sh` to turn `cert-list.nix` into a valid (unencrypted) nix expression. If you have no certs to install, at this point you can remove the `certs/` directory without causing any harm. **You must repeat all of this if you ever pull any changes from GitHub.**
+This configuration is used on a system that requires CA certificates for a part of the workflow that I undergo, and the easiest way to have the certs integrate into my system was to include encrypted copies in the repository. However, these will be no good to you, so you need to set up your own certs. To do this, place all of your certificates in `~/certs/` (skip this if you don't need to add any certs) and then run `./update-certs.sh` to turn `cert-list.nix` into a valid nix expression.
 
 ### 5. Rebuild your system using the prepared configs.
 
-The first time you rebuild your system using these configs you will need to specify that you want to use the flake, and where the flake itself is. To rebuild your system run `sudo nixos-rebuild boot --flake path:.#your-HOSTNAME-here --extra-experimantal-features "nix-command flakes"`. Firstly, note that the flake is specified using `path:`; this is important as without it, the changes you made to other files in the cloned repo will not be recognised by the command and errors will occur. Also note the `your-HOSTNAME-here` afterwards. You know what to do with this part, I won't insult you. You only need to run this command once. See (§ Updating the configuration) for what to do for subsequent updates.
+The first time you rebuild your system using these configs you will need to specify that you want to use the flake, and where the flake itself is. To rebuild your system run `sudo nixos-rebuild boot --flake path:.#your-HOSTNAME-here --extra-experimantal-features "nix-command flakes"`. Firstly, note that the flake is specified using `path:`; this is important as without it, the changes you made to other files in the cloned repo will not be recognised by the command and errors will occur. Also note the `your-HOSTNAME-here` afterwards. You know what to do with this part, I won't insult you.
 
 ### 6. Reboot
 
