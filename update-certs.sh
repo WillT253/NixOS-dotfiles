@@ -8,7 +8,7 @@ cd ~/nixos-dotfiles/
 
 shopt -s nullglob
 
-rm certs/*
+[ "$(ls -A certs)" ] && rm certs/*
 
 for cert in "$PERMANENT_CERT_DIR"/*.pem "$PERMANENT_CERT_DIR"/*.crt; do
   cp $cert "$CERT_DIR"/
