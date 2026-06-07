@@ -78,9 +78,14 @@ git clone https://github.com/willt253/nixos-dotfiles
    ```
 Ensure this is in your home directory (`~/nixos-dotfiles`), or the symlinks will not work.
 
-### 2. Copy `/etc/nixos/hardware-configuration.nix` into the repo in place of the file that will be cloned.
+### 2. Set up hardware configuration.
 
 Unless you're on an HP Laptop 15-da0 series laptop that you've replaced several components of and whose drive just so happens to have exactly the same partition UUIDs as mine, you'll probably want to do this step or your config won't boot.
+Copy `/etc/nixos/hardware-configuration.nix` into the repo. Next, create a new file, `hwconfig-extra.nix`. If you have any extra hardware configurations, they should go in this file. If you don't have any extra configuration to add or don't want to mess with any hardware config, just add the following to the file:
+```nix
+{
+}
+```
 
 ### 3. Set some basic settings.
 
