@@ -1,6 +1,6 @@
 # WillT's NixOS dotfiles!
 
-This repo contains all of my dotfiles for NixOS. This is currently deployed on two of my machines, one of them being my daily driver, and is under constant development. **This is a highly opinionated configuration, built specifically for me.** If you install this and encounter any issues, by all means create an issue. Any advice or suggestiond on *new* features is welcomed, but changes to *currently installed* features is not, as these have been set up how I want them.
+This repo contains all of my dotfiles for NixOS. This is currently deployed on two of my machines, one of them being my daily driver, and is under constant development. **This is a highly opinionated configuration, built specifically for me.** If you install this and encounter any issues, by all means create an issue. Any advice or suggestions on *new* features is welcomed, but changes to *currently installed* features is not, as these have been set up how I want them.
 
 ## Features
 
