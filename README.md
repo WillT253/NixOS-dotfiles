@@ -117,4 +117,4 @@ If you haven't edited your configuration, or are happy to resolve any conflicts 
 Good luck, my friend. You have chosen quite possibly the least stable NixOS configuration on this site.
 
 Eventually I *might* make an autoinstall script for this mess, but for now you'll have to suffer.
-I also *may* edit the directory structure to allow for you to add your own configs and not have them overwritten if/when you update the repo, but for now the steps above apply to pulling changes as well, and will destroy any edits you make.
+I also *may* edit the directory structure to allow for you to add your own configs and not have them overwritten if/when you update the repo, but for now you'll have to do this manually. If you want to help out, PRs are welcomed, though I reserve the right to the final say in whether your code makes it into the repo.
