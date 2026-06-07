@@ -205,6 +205,7 @@
         jrnl
         qutebrowser
         claude-code
+        gparted
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
