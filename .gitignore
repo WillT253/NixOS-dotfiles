@@ -4,6 +4,7 @@
 
 # Ignore device configuration as it is system-specific
 hardware-configuration.nix
+hwconfig-extra.nix
 
 # The below module contains hostname, username, etc. that is user-specific.
 sysSettings.nix
