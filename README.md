@@ -72,24 +72,30 @@ After changing any configuration in the repo, just run `udnix` from any terminal
 To be honest, I don't know what would possess someone to install this, but if you really want to, then install NixOS fresh or back up your existing configs first.
 
 ### 1. Clone the repo:
+
    ```bash
 git clone https://github.com/willt253/nixos-dotfiles
    ```
 Ensure this is in your home directory (`~/nixos-dotfiles`), or the symlinks will not work.
 
 ### 2. Copy `/etc/nixos/hardware-configuration.nix` into the repo in place of the file that will be cloned.
+
 Unless you're on an HP Laptop 15-da0 series laptop that you've replaced several components of and whose drive just so happens to have exactly the same partition UUIDs as mine, you'll probably want to do this step or your config won't boot.
 
-### 3. Set your desired hostname and username.
-Rename `sysSettings.nix.example` to `sysSettings.nix` and change its contents to match your desired username, hostname and locale.
+### 3. Set some basic settings.
+
+Run `./generate-sysSettings.sh` to generate basic settings such as locale, keyboard layout, etc.
 
 ### 4. Configure your certificates
+
 This configuration is used on a system that requires CA certificates for a part of the workflow that I undergo, and the easiest way to have the certs integrate into my system was to include encrypted copies in the repository. However, this means you have to do more work if you are not me. First, delete the contents of the `certs/` directory, but keep the directory itself. At this point, if you have any certs of your own, **symlink or copy** them into the `certs/` directory (DO **NOT** *move* them: the pre-installed certs are `git`-tracked, so pulling the repo will replace the files). Then run `./update-certs.sh` to turn `cert-list.nix` into a valid (unencrypted) nix expression. If you have no certs to install, at this point you can remove the `certs/` directory without causing any harm. **You must repeat all of this if you ever pull any changes from GitHub.**
 
 ### 5. Rebuild your system using the prepared configs.
+
 The first time you rebuild your system using these configs you will need to specify that you want to use the flake, and where the flake itself is. To rebuild your system run `sudo nixos-rebuild boot --flake path:.#your-HOSTNAME-here --extra-experimantal-features "nix-command flakes"`. Firstly, note that the flake is specified using `path:`; this is important as without it, the changes you made to other files in the cloned repo will not be recognised by the command and errors will occur. Also note the `your-HOSTNAME-here` afterwards. You know what to do with this part, I won't insult you. You only need to run this command once. See (§ Updating the configuration) for what to do for subsequent updates.
 
 ### 6. Reboot
+
 Given that this is an entire system configuration, it is far safer to activate the new configuration on the next boot rather than in-place. Subsequent builds will have fewer changes, thus the helper script rebuilds the system in-place. If there is a kernel update or otherwise major change to the system, I **strongly** recommend rebooting after updating.
 
 ### 7. Open an issue because this probably didn't work.
