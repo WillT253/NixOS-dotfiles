@@ -20,9 +20,24 @@ Name_9=Photos
 Number=9
 Rows=3
 
+[Effect-BetterBlur]
+BlurStrength=4
+NoiseStrength=2
+
+[Effect-better-blur-dx]
+BlurMatching=false
+BlurNonMatching=true
+BlurStrength=8
+NoiseStrength=2
+WindowClasses=.*
+
 [Plugins]
+backgroundcontrastEnabled=false
+better_blur_dxEnabled=true
+blurEnabled=false
 dimscreenEnabled=true
 krohnkiteEnabled=true
+kwin4_effect_betterblurEnabled=true
 poloniumEnabled=false
 
 [Script-krohnkite]

@@ -4,6 +4,7 @@
   config,
   plasma-manager,
   sysSettings,
+  better-blur,
   ...
 }:
 {
@@ -19,6 +20,7 @@
       statix
       nil
       nixfmt
+      better-blur.packages.${pkgs.system}.default
     ];
 
     file.".config/autostart/goToDesktopOne.desktop".text = ''
@@ -108,6 +110,23 @@
     };
 
     plasma = {
+      configFile = {
+        "kwinrc" = {
+          "Plugins" = {
+            "better_blur_dxEnabled" = true;
+            "blurEnabled" = false;
+            "backgroundcontrastEnabled" = false;
+          };
+          "Effect-better-blur-dx" = {
+            "BlurMatching" = false;
+            "BlurNonMatching" = true;
+            "BlurStrength" = 8;
+            "NoiseStrength" = 2;
+            "WindowClasses" = ".*";
+          };
+        };
+      };
+
       krunner = {
         position = "center";
         shortcuts.launch = "Meta+X";

@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    better-blur = {
+      url = "github:xarblu/kwin-effects-better-blur-dx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,6 +31,7 @@
       lazyvim,
       home-manager,
       plasma-manager,
+      better-blur,
       ...
     }:
     let
@@ -50,7 +56,12 @@
                 users.${sysSettings.username} = import ./home-manager/home.nix;
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
-                  inherit lazyvim plasma-manager sysSettings;
+                  inherit
+                    lazyvim
+                    plasma-manager
+                    sysSettings
+                    better-blur
+                    ;
                 };
               };
             }
