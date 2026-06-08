@@ -1,5 +1,3 @@
-# home.nix
-
 {
   pkgs,
   lazyvim,
@@ -67,6 +65,8 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager";
     "nyxt".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/nyxt";
+    "kwinrulesrc".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kwinrulesrc";
   };
 
   programs = {
@@ -217,37 +217,6 @@
           dimAdminMode.enable = true;
         };
       };
-
-      configFile = {
-        #"kwinrc" = {
-        #  "org.kde.polonium" = {
-        #   "gapsInner" = 36;
-        #   "gapsOuter" = 36;
-        # };
-
-        # "Plugins"."krohnkiteEnabled" = "true";
-        # "krohnkite"."gapInner" = "10";
-        #};
-
-        "yakuakerc"."Behavior"."FocusOnStart" = false;
-      };
-
-      window-rules = [
-        {
-          description = "Maximize by default";
-          match.window-types = [ "normal" ];
-          apply = {
-            maximizedhoriz = {
-              value = true;
-              apply = "initially";
-            };
-            maxinizedvert = {
-              value = true;
-              apply = "initially";
-            };
-          };
-        }
-      ];
 
       shortcuts = {
         # "services/org.kde.dolphin.desktop"."_launch" = "none";

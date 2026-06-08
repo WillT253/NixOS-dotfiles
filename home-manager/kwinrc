@@ -109,6 +109,7 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Windows]
 RollOverDesktops=true
+TitlebarScroll=11
 
 [Xwayland]
 Scale=1

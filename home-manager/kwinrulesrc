@@ -1,0 +1,12 @@
+[General]
+count=1
+rules=bf44e24a-f1db-4882-923a-751d3c22bdf8
+
+[bf44e24a-f1db-4882-923a-751d3c22bdf8]
+Description=Window opacity
+opacityactive=85
+opacityactiverule=2
+opacityinactive=65
+opacityinactiverule=2
+wmclass=.*
+wmclassmatch=3
