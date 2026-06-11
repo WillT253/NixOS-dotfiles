@@ -46,6 +46,7 @@
       "ecfg" = "cd ~/nixos-dotfiles/; nvim .";
       "grep" = "rg";
       "find" = "fd";
+      "ssuuddoo" = "sudo -i";
     };
 
     username = "${sysSettings.username}";
