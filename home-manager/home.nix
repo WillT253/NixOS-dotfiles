@@ -93,6 +93,8 @@
         bindkey -s '^Xgc' 'gc -m ""\C-b'
 
         bindkey -s '^Xga' 'ga -A'
+
+        curl wttr.in
       '';
       oh-my-zsh = {
         enable = true;
