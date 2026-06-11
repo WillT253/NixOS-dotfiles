@@ -70,6 +70,8 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/nyxt";
     "kwinrulesrc".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kwinrulesrc";
+    "fastfetch/config.jsonc".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/fastfetch-config.jsonc";
   };
 
   programs = {
@@ -95,7 +97,7 @@
 
         bindkey -s '^Xga' 'ga -A'
 
-        curl wttr.in
+        fastfetch
       '';
       oh-my-zsh = {
         enable = true;

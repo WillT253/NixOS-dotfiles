@@ -1,0 +1,119 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+  "logo": {
+    "type": "command-raw",
+    
+    "source": "curl -s 'https://v2n.wttr.is/'", 
+    
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    }
+  },
+
+  "display": {
+    "separator": " ➜ ",
+    "color": {
+      "keys": "green"
+    }
+  },
+  "modules": [
+    "break",
+    "break",
+    "break",
+    {
+      "type": "os",
+      "key": "OS   ",
+    },
+    {
+      "type": "kernel",
+      "key": " ├  ",
+    },
+    {
+      "type": "packages",
+      "key": " ├ 󰏖 ",
+    },
+    {
+      "type": "shell",
+      "key": " └  ",
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "WM   ",
+    },
+    {
+      "type": "wmtheme",
+      "key": " ├ 󰉼 ",
+    },
+    {
+      "type": "icons",
+      "key": " ├ 󰀻 ",
+    },
+    {
+      "type": "cursor",
+      "key": " ├  ",
+    },
+    {
+      "type": "terminal",
+      "key": " ├  ",
+    },
+    {
+      "type": "terminalfont",
+      "key": " └  ",
+    },
+    "break",
+    {
+      "type": "host",
+      "format": "{2}",
+      "key": "PC   ",
+    },
+    {
+      "type": "uptime",
+      "key": " ├ 󰔛 "
+    },
+    {
+      "type": "battery",
+      "key": " ├  "
+    },
+    {
+      "type": "poweradapter",
+      "key": " ├  "
+    },
+    {
+      "type": "cpu",
+      "format": "{1} ({3}) @ {7} GHz",
+      "key": " ├  ",
+    },
+    {
+      "type": "gpu",
+      "format": "{1} {2} @ {12} GHz",            
+      "key": " ├ 󰢮 ",
+    },
+    {
+      "type": "memory",
+      "key": " ├  ",
+    },
+    {
+      "type": "swap",
+      "key": " ├ 󰓡 ",
+    },
+    {
+      "type": "disk",
+      "key": " ├ 󰋊 ",
+    },
+    {
+      "type": "localip",
+      "key": " ├ 󰒍 "
+    },
+    {
+      "type": "monitor",
+      "key": " └  ",
+    },
+    "break",
+    "break",
+    "colors",
+  ]
+}
