@@ -22,6 +22,8 @@
       url = "github:xarblu/kwin-effects-better-blur-dx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
   };
 
   outputs =
@@ -32,6 +34,7 @@
       home-manager,
       plasma-manager,
       better-blur,
+      nixos-grub-themes,
       ...
     }:
     let
@@ -45,7 +48,7 @@
       nixosConfigurations = {
         ${sysSettings.hostname} = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit sysSettings; };
+          specialArgs = { inherit sysSettings nixos-grub-themes; };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager

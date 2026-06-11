@@ -6,6 +6,7 @@
   config,
   pkgs,
   sysSettings,
+  nixos-grub-themes,
   ...
 }:
 
@@ -17,21 +18,70 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = false;
-
-  boot.loader = {
-    grub = {
+  boot = {
+    initrd = {
       enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = false;
+      kernelModules = [ "i915" ];
+      verbose = false;
+      systemd.enable = true;
     };
+    loader = {
+      systemd-boot.enable = false;
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = false;
+        theme = nixos-grub-themes.packages.${pkgs.system}.nixos;
+        gfxmodeBios = "1920x1080";
+        gfxmodeEfi = "1920x1080";
+        splashImage = null;
+        backgroundColor = "#000000";
+        extraConfig = ''
+          set gfxpayload=keep
+        '';
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    blacklistedKernelModules = [
+      "iTCO_wdt"
+      "sp5100_tco"
+      "wdat_wdt"
+    ];
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "vt.global_cursor_default=0"
+      "fbcon=nodefer"
+      "udev.log_priority=3"
+      "nowatchdog"
+      "nmi_watchdog=0"
+      "logo.nologo"
+      "i915.fastboot=1"
+    ];
+    consoleLogLevel = 0;
   };
 
-  boot.loader.efi.canTouchEfiVariables = true;
+  services.logind.settings.Login = {
+    WallMessages = "no";
+  };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  systemd.services."systemd-backlight@backlight:intel_backlight".enable = false;
+  systemd.settings.Manager = {
+    RuntimeWatchdogSec = "0";
+    RebootWatchdogSec = "0";
+    KExecWatchdogSec = "0";
+  };
 
   networking.hostName = "${sysSettings.hostname}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
