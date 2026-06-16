@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Autostart script for user-defined startup commands
+Exec=~/nixos-dotfiles/home-manager/autostart.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
