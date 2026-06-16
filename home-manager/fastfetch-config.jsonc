@@ -4,7 +4,7 @@
   "logo": {
     "type": "command-raw",
     
-    "source": "curl -s 'https://v2n.wttr.is/'", 
+    "source": "curl -s 'https://v2n.wttr.is/'; echo; echo", 
     
     "padding": {
       "top": 1,

@@ -72,6 +72,8 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/kwinrulesrc";
     "fastfetch/config.jsonc".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/home-manager/fastfetch-config.jsonc";
+    "autostart/user-autostart.desktop".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home/will/nixos-dotfiles/home-manager/user-autostart.desktop";
   };
 
   programs = {
