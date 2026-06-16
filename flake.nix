@@ -24,6 +24,11 @@
     };
 
     nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
+
+    sidra = {
+      url = "github:wimpysworld/sidra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,20 +40,21 @@
       plasma-manager,
       better-blur,
       nixos-grub-themes,
+      sidra,
       ...
-    }:
+    }@inputs:
     let
       inherit (nixpkgs) lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       sysSettings = import ./sysSettings.nix;
-
+      inherit inputs;
     in
     {
       nixosConfigurations = {
         ${sysSettings.hostname} = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit sysSettings nixos-grub-themes; };
+          specialArgs = { inherit sysSettings nixos-grub-themes inputs; };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager

@@ -174,7 +174,28 @@
         "lazyvim": "lazyvim",
         "nixos-grub-themes": "nixos-grub-themes",
         "nixpkgs": "nixpkgs_3",
-        "plasma-manager": "plasma-manager"
+        "plasma-manager": "plasma-manager",
+        "sidra": "sidra"
+      }
+    },
+    "sidra": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781412000,
+        "narHash": "sha256-XxKL+f+2+mQ6zbw1Aszx8WuH12rLdUQvEL1YppbKap4=",
+        "owner": "wimpysworld",
+        "repo": "sidra",
+        "rev": "91665a8313d5ecf7c2e65e22bf7b029cc0d627bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wimpysworld",
+        "repo": "sidra",
+        "type": "github"
       }
     },
     "systems": {

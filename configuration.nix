@@ -7,6 +7,7 @@
   pkgs,
   sysSettings,
   nixos-grub-themes,
+  inputs,
   ...
 }:
 
@@ -248,7 +249,7 @@
         omnissa-horizon-client
         kdePackages.krohnkite
         kdotool
-        libreoffice
+        libreoffice-fresh
         libimobiledevice
         ifuse
         gthumb
@@ -260,6 +261,11 @@
         jrnl
         gparted
         teams-for-linux
+        freecad
+        discord
+        inputs.sidra.packages.${pkgs.system}.default
+        mprisence
+        gimp
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
