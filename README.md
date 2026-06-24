@@ -111,7 +111,7 @@ Once you have installed this mess, the consolation is that updating it is *sligh
 
 ### 1. Updating while keeping your edits
 
-For now, if you edit your configuration, pulling any changes from github will either overwrite your changes or cause merge conflicts on your local clone. The safest option is you don't want to deal with all of this is to simply run `udnix` from zsh, bash or kitty, or `~/nixos-dotfiles/home-manager/udnix.sh` from any other terminal. If you have enabled configuration for any other terminals in `home.nix`, the alias will be automatically applied for ease of access.
+For now, if you edit your configuration, pulling any changes from github will either overwrite your changes or cause merge conflicts on your local clone. The safest option is you don't want to deal with all of this is to simply run `udnix` from zsh, bash or kitty, or `~/nixos-dotfiles/home-manager/udnix.sh` from any other terminal. If you have enabled configuration for any other terminals in `home.nix`, the alias will be automatically applied for ease of access. Note that this will not update your system to the latest version hosted here, but rather only apply changes you make locally.
 
 ### 2. Updating to the latest version from github
 
