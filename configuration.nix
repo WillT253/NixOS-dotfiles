@@ -266,6 +266,11 @@
         inputs.sidra.packages.${pkgs.system}.default
         mprisence
         gimp
+        telegram-desktop
+        signal-desktop
+        whatsapp-electron
+        vesktop
+        strawberry
       ]
       ++ builtins.filter pkgs.lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
