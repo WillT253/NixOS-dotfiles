@@ -10,4 +10,4 @@ hwconfig-extra.nix
 sysSettings.nix
 
 # Ignore wallpaper folder
-wallpapers/* 
+home-manager/wallpapers/* 
